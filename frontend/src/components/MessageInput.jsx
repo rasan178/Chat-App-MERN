@@ -54,7 +54,7 @@ const MessageInput = () => {
   return (
     <div className="p-4 w-full">
       {replyToMessage && (
-        <div className="mb-3 flex items-center justify-between bg-blue-100 px-3 py-2 rounded text-blue-800 max-w-md">
+        <div className="mb-3 flex items-center justify-between bg-info/20 px-3 py-2 rounded text-info-content max-w-md border border-info/30">
           <div className="truncate max-w-[90%]">
             Replying to:{" "}
             {replyToMessage.text
@@ -65,7 +65,7 @@ const MessageInput = () => {
           </div>
           <button
             onClick={cancelReply}
-            className="btn btn-ghost btn-xs text-blue-800"
+            className="btn btn-ghost btn-xs text-info-content hover:bg-info/10"
             type="button"
           >
             <X size={16} />
@@ -79,12 +79,12 @@ const MessageInput = () => {
             <img
               src={imagePreview}
               alt="Preview"
-              className="w-20 h-20 object-cover rounded-lg border border-zinc-700"
+              className="w-20 h-20 object-cover rounded-lg border border-base-300"
             />
             <button
               onClick={removeImage}
-              className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-base-300
-              flex items-center justify-center"
+              className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-base-300 hover:bg-base-200
+              flex items-center justify-center text-base-content"
               type="button"
             >
               <X className="size-3" />
@@ -112,8 +112,9 @@ const MessageInput = () => {
 
           <button
             type="button"
-            className={`hidden sm:flex btn btn-circle
-                     ${imagePreview ? "text-emerald-500" : "text-zinc-400"}`}
+            className={`hidden sm:flex btn btn-circle btn-ghost
+                     ${imagePreview ? "text-success" : "text-base-content/60"} 
+                     hover:bg-base-200`}
             onClick={() => fileInputRef.current?.click()}
           >
             <Image size={20} />
@@ -121,7 +122,7 @@ const MessageInput = () => {
         </div>
         <button
           type="submit"
-          className="btn btn-sm btn-circle"
+          className="btn btn-sm btn-circle btn-primary"
           disabled={!text.trim() && !imagePreview}
         >
           <Send size={22} />
