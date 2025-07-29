@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://chat-app-mern-rasan-samarakkodys-projects.vercel.app",
+    origin: "https://chatifyoffitial.vercel.app",
     credentials: true,
   })
 );
