@@ -13,77 +13,77 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Desktop Horizontal Navbar */}
-      <header className="hidden lg:block fixed top-0 left-0 right-0 bg-gradient-to-r from-base-100 to-base-200 border-b border-base-300 z-50 backdrop-blur-lg">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo Section */}
+      {/* Desktop Vertical Navbar */}
+      <aside className="hidden lg:flex fixed left-0 top-0 h-full w-20 xl:w-64 bg-gradient-to-b from-base-100 to-base-200 border-r border-base-300 z-50 backdrop-blur-lg">
+        <div className="flex flex-col h-full w-full">
+          {/* Logo Section */}
+          <div className="p-4 xl:p-6 border-b border-base-300">
             <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-all group">
               <div className="size-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all">
                 <Send className="w-6 h-6 text-primary-content" />
               </div>
-              <div>
+              <div className="hidden xl:block">
                 <h1 className="text-xl font-bold text-base-content">Chatify</h1>
                 <p className="text-xs text-base-content/60">Stay Connected</p>
               </div>
             </Link>
-
-            {/* Navigation Links */}
-            <nav className="flex items-center gap-6">
-              <Link
-                to="/settings"
-                className="flex items-center gap-3 p-3 rounded-xl hover:bg-base-300 active:bg-base-300/70 transition-all duration-200 group"
-              >
-                <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Settings className="w-5 h-5 text-primary" />
-                </div>
-                <span className="font-medium text-base-content">Settings</span>
-              </Link>
-
-              {authUser && (
-                <Link
-                  to="/profile"
-                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-base-300 active:bg-base-300/70 transition-all duration-200 group"
-                >
-                  <div className="p-2 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
-                    <User className="w-5 h-5 text-secondary" />
-                  </div>
-                  <span className="font-medium text-base-content">Profile</span>
-                </Link>
-              )}
-            </nav>
-
-            {/* User Section & Logout */}
-            {authUser && (
-              <div className="flex items-center gap-4">
-                {/* User Info */}
-                <div className="flex items-center gap-3 p-3 rounded-xl bg-base-200">
-                  <div className="avatar">
-                    <div className="w-10 h-10 rounded-full ring-2 ring-primary/20">
-                      <img src={authUser.profilePic || "/avatar.png"} alt={authUser.fullName} />
-                    </div>
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-medium text-sm text-base-content truncate">{authUser.fullName}</p>
-                    <p className="text-xs text-success">Online</p>
-                  </div>
-                </div>
-
-                {/* Logout Button */}
-                <button
-                  onClick={logout}
-                  className="flex items-center gap-3 p-3 rounded-xl hover:bg-error/10 active:bg-error/20 transition-all duration-200 group"
-                >
-                  <div className="p-2 rounded-lg bg-error/10 group-hover:bg-error/20 transition-colors">
-                    <LogOut className="w-5 h-5 text-error" />
-                  </div>
-                  <span className="font-medium text-error">Logout</span>
-                </button>
-              </div>
-            )}
           </div>
+
+          {/* Navigation Links */}
+          <nav className="flex-1 p-4 xl:p-6 space-y-3">
+            <Link
+              to="/settings"
+              className="flex items-center gap-4 p-3 xl:p-4 rounded-xl hover:bg-base-300 active:bg-base-300/70 transition-all duration-200 group"
+            >
+              <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                <Settings className="w-5 h-5 text-primary" />
+              </div>
+              <span className="hidden xl:inline font-medium text-base-content">Settings</span>
+            </Link>
+
+            {authUser && (
+              <Link
+                to="/profile"
+                className="flex items-center gap-4 p-3 xl:p-4 rounded-xl hover:bg-base-300 active:bg-base-300/70 transition-all duration-200 group"
+              >
+                <div className="p-2 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors">
+                  <User className="w-5 h-5 text-secondary" />
+                </div>
+                <span className="hidden xl:inline font-medium text-base-content">Profile</span>
+              </Link>
+            )}
+          </nav>
+
+          {/* User Section & Logout */}
+          {authUser && (
+            <div className="p-4 xl:p-6 border-t border-base-300 space-y-3">
+              {/* User Info */}
+              <div className="flex items-center gap-3 p-2 xl:p-3 rounded-xl bg-base-200">
+                <div className="avatar">
+                  <div className="w-10 h-10 rounded-full ring-2 ring-primary/20">
+                    <img src={authUser.profilePic || "/avatar.png"} alt={authUser.fullName} />
+                  </div>
+                </div>
+                <div className="hidden xl:block min-w-0 flex-1">
+                  <p className="font-medium text-sm text-base-content truncate">{authUser.fullName}</p>
+                  <p className="text-xs text-success">Online</p>
+                </div>
+              </div>
+
+              {/* Logout Button */}
+              <button
+                onClick={logout}
+                className="flex items-center gap-4 p-3 xl:p-4 rounded-xl hover:bg-error/10 active:bg-error/20 transition-all duration-200 group w-full"
+              >
+                <div className="p-2 rounded-lg bg-error/10 group-hover:bg-error/20 transition-colors">
+                  <LogOut className="w-5 h-5 text-error" />
+                </div>
+                <span className="hidden xl:inline font-medium text-error">Logout</span>
+              </button>
+            </div>
+          )}
         </div>
-      </header>
+      </aside>
 
       {/* Mobile Top Navbar */}
       <header className="lg:hidden bg-gradient-to-r from-base-100 to-base-200 border-b border-base-300 fixed w-full top-0 z-50 backdrop-blur-lg">
