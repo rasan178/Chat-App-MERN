@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Vertical Navbar */}
-      <aside className="hidden lg:flex fixed left-0 top-0 h-full w-20 xl:w-64 bg-gradient-to-b from-base-100 to-base-200 border-r border-base-300 z-50 backdrop-blur-lg">
+      <aside className="hidden lg:flex fixed left-0 top-0 h-full w-20 xl:w-64 bg-gradient-to-b from-base-100 to-base-200 border-r border-base-300 z-40 backdrop-blur-lg">
         <div className="flex flex-col h-full w-full">
           {/* Logo Section */}
           <div className="p-4 xl:p-6 border-b border-base-300">
@@ -86,7 +86,7 @@ const Navbar = () => {
       </aside>
 
       {/* Mobile Top Navbar */}
-      <header className="lg:hidden bg-gradient-to-r from-base-100 to-base-200 border-b border-base-300 fixed w-full top-0 z-50 backdrop-blur-lg">
+      <header className="lg:hidden bg-gradient-to-r from-base-100 to-base-200 border-b border-base-300 fixed w-full top-0 z-40 backdrop-blur-lg">
         <div className="container mx-auto px-4 h-16">
           <div className="flex items-center justify-between h-full">
             {/* Mobile Logo */}
@@ -113,7 +113,7 @@ const Navbar = () => {
 
         {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-base-100 border-b border-base-300 shadow-lg backdrop-blur-lg">
+          <div className="absolute top-full left-0 right-0 bg-base-100 border-b border-base-300 shadow-lg backdrop-blur-lg z-50">
             <div className="container mx-auto px-4 py-4 space-y-2">
               <Link
                 to="/settings"
@@ -168,7 +168,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/20 z-40"
+          className="lg:hidden fixed inset-0 bg-black/20 z-30"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
